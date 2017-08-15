@@ -1,0 +1,6 @@
+framework module LXDMacros {
+  umbrella header "LXDMacros-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module LXDCategory {
+  umbrella header "LXDCategory-umbrella.h"
+
+  export *
+  module * { export * }
+}

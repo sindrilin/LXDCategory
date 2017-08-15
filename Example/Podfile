@@ -2,6 +2,7 @@ use_frameworks!
 
 target 'LXDCategory_Example' do
   pod 'LXDCategory', :path => '../'
+  pod 'LXDMacros', '~>0.1.4'
 
   target 'LXDCategory_Tests' do
     inherit! :search_paths
@@ -10,3 +11,5 @@ target 'LXDCategory_Example' do
   pod 'Expecta'
   end
 end
+
+

@@ -7,6 +7,8 @@
 //
 
 #import "LXDViewController.h"
+#import <LXDCategory/UIView+LXDCategory.h>
+#import <LXDCategory/NSFileManager+LXDGenerate.h>
 
 @interface LXDViewController ()
 

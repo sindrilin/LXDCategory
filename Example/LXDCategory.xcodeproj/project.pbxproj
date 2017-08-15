@@ -340,10 +340,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-LXDCategory_Example/Pods-LXDCategory_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/LXDCategory/LXDCategory.framework",
+				"${BUILT_PRODUCTS_DIR}/LXDMacros/LXDMacros.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LXDCategory.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LXDMacros.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

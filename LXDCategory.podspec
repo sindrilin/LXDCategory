@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LXDCategory'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of LXDCategory.'
+  s.version          = '1.0.0'
+  s.summary          = 'A category library.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -21,16 +21,16 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/JustkeepRunning/LXDCategory'
+  s.homepage         = 'git@github.com:sindrilin/LXDCategory.git'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'JustkeepRunning' => '634893985@qq.com' }
-  s.source           = { :git => 'https://github.com/JustkeepRunning/LXDCategory.git', :tag => s.version.to_s }
+  s.author           = { 'sindrilin' => 'codersindri@gmail.com' }
+  s.source           = { :git => 'git@github.com:sindrilin/LXDCategory.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'LXDCategory/Classes/**/*'
+  s.source_files = 'LXDCategory/Classes/*'
   
   # s.resource_bundles = {
   #   'LXDCategory' => ['LXDCategory/Assets/*.png']
@@ -39,4 +39,11 @@ TODO: Add long description of the pod here.
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
+  
+  s.subspec 'LXDCategory' do |ss|
+    ss.dependency 'LXDMacros', '~> 0.1.4'
+  end
+
 end
+
+
