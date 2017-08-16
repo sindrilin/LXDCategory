@@ -13,6 +13,49 @@
 @implementation NSFileManager (Category)
 
 
+#pragma mark Private
+- (NSArray<NSData *> *)_lxdGenerateAllDatasAtPath: (NSString *)path {
+    switch ([self lxdFileTypeAtFilePath: path]) {
+        case LXDFileTypeDirectory:
+            return [self lxdGenerateAllDatasAtDirectoryPath: path];
+            
+        case LXDFileTypeRegular:
+        case LXDFileTypeUnkonwn:
+            return @[[self contentsAtPath: path]];
+            
+        default:
+            return @[];
+    }
+}
+
+- (NSArray<NSString *> *)_lxdGenerateAllFilePathsAtPath: (NSString *)path {
+    switch ([self lxdFileTypeAtFilePath: path]) {
+        case LXDFileTypeDirectory:
+            return [self lxdGenerateAllFilePathsAtDirectoryPath: path];
+            
+        case LXDFileTypeRegular:
+        case LXDFileTypeUnkonwn:
+            return @[path];
+            
+        default:
+            return @[];
+    }
+}
+
+- (void)_lxdEnumerateDirectoryPath: (NSString *)directoryPath withHandler: (void(^)(NSString *filePath))handler {
+    if ([self lxdFileTypeAtFilePath: directoryPath] != LXDFileTypeDirectory || handler == nil) {
+        return;
+    }
+    
+    NSDirectoryEnumerator *directoryEnumerator = [self enumeratorAtPath: directoryPath];
+    NSString *filePath;
+    while ((filePath = [directoryEnumerator nextObject]) != nil) {
+        handler(filePath);
+    }
+}
+
+
+#pragma mark Public
 - (LXDFileType)lxdFileTypeAtFilePath: (NSString *)filePath {
     if (![filePath isKindOfClass: [NSString class]] || [filePath length] == 0) { return LXDFileTypeInvaildFile; }
     LXDFileType fileType = LXDFileTypeUnkonwn;
@@ -66,48 +109,6 @@
     }];
     
     return [NSArray arrayWithArray: allFilePaths];
-}
-
-
-#pragma mark - Private
-- (NSArray<NSData *> *)_lxdGenerateAllDatasAtPath: (NSString *)path {
-    switch ([self lxdFileTypeAtFilePath: path]) {
-        case LXDFileTypeDirectory:
-            return [self lxdGenerateAllDatasAtDirectoryPath: path];
-            
-        case LXDFileTypeRegular:
-        case LXDFileTypeUnkonwn:
-            return @[[self contentsAtPath: path]];
-            
-        default:
-            return @[];
-    }
-}
-
-- (NSArray<NSString *> *)_lxdGenerateAllFilePathsAtPath: (NSString *)path {
-    switch ([self lxdFileTypeAtFilePath: path]) {
-        case LXDFileTypeDirectory:
-            return [self lxdGenerateAllFilePathsAtDirectoryPath: path];
-            
-        case LXDFileTypeRegular:
-        case LXDFileTypeUnkonwn:
-            return @[path];
-            
-        default:
-            return @[];
-    }
-}
-
-- (void)_lxdEnumerateDirectoryPath: (NSString *)directoryPath withHandler: (void(^)(NSString *filePath))handler {
-    if ([self lxdFileTypeAtFilePath: directoryPath] != LXDFileTypeDirectory || handler == nil) {
-        return;
-    }
-    
-    NSDirectoryEnumerator *directoryEnumerator = [self enumeratorAtPath: directoryPath];
-    NSString *filePath;
-    while ((filePath = [directoryEnumerator nextObject]) != nil) {
-        handler(filePath);
-    }
 }
 
 

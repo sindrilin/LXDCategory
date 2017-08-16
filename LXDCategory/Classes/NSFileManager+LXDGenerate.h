@@ -8,8 +8,10 @@
 
 
 #import <Foundation/Foundation.h>
+#import <LXDMacros/LXDMacros.h>
 
-NS_ASSUME_NONNULL_BEGIN
+
+nonull_begin
 
 typedef NS_ENUM(NSInteger, LXDFileType)
 {
@@ -58,5 +60,5 @@ typedef NS_ENUM(NSInteger, LXDFileType)
 @end
 
 
-NS_ASSUME_NONNULL_END
+nonnull_end
 
