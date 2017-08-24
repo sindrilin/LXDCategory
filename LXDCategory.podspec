@@ -42,7 +42,7 @@ TODO: Add long description of the pod here.
   # s.dependency 'AFNetworking', '~> 2.3'
   
   s.subspec 'LXDCategory' do |ss|
-    ss.dependency 'LXDMacros', '~> 1.0.0'
+    ss.dependency 'LXDMacros', '~> 2.0.0'
   end
 
 end
