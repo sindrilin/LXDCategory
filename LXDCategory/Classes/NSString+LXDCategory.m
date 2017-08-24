@@ -10,6 +10,7 @@
 #import <CommonCrypto/CommonCrypto.h>
 
 
+
 #pragma mark - 字符验证
 @implementation NSString (LXDVertify)
 
