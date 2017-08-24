@@ -80,7 +80,7 @@
     if ([self lxdFileTypeAtFilePath: directoryPath] != LXDFileTypeDirectory) { return @[]; }
     NSMutableArray<NSData *> *allDatas = @[].mutableCopy;
     
-    @weakify(self);
+    __weak typeof(self) self_weak_ = self;
     [self _lxdEnumerateDirectoryPath: directoryPath withHandler: ^(NSString *filePath) {
         [allDatas addObjectsFromArray: [self_weak_ _lxdGenerateAllDatasAtPath: filePath]];
     }];
@@ -103,7 +103,7 @@
     if ([self lxdFileTypeAtFilePath: directoryPath] != LXDFileTypeDirectory) { return @[]; }
     NSMutableArray *allFilePaths = @[].mutableCopy;
     
-    @weakify(self);
+    __weak typeof(self) self_weak_ = self;
     [self _lxdEnumerateDirectoryPath: directoryPath withHandler: ^(NSString *filePath) {
         [allFilePaths addObjectsFromArray: [self_weak_ _lxdGenerateAllFilePathsAtPath: filePath]];
     }];
