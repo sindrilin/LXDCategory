@@ -23,6 +23,11 @@
 @property (nonatomic, assign) CGSize size;
 @property (nonatomic, assign) CGPoint origin;
 
+@property (nonatomic, readonly) CGFloat midX;
+@property (nonatomic, readonly) CGFloat midY;
+@property (nonatomic, readonly) CGFloat maxX;
+@property (nonatomic, readonly) CGFloat maxY;
+
 @end
 
 

@@ -67,6 +67,22 @@
     LXD_FRAME_SET(frame.origin = origin);
 }
 
+- (CGFloat)midX {
+    return CGRectGetMidX(self.frame);
+}
+
+- (CGFloat)midY {
+    return CGRectGetMidY(self.frame);
+}
+
+- (CGFloat)maxX {
+    return CGRectGetMaxX(self.frame);
+}
+
+- (CGFloat)maxY {
+    return CGRectGetMaxY(self.frame);
+}
+
 
 @end
 
