@@ -100,7 +100,7 @@
 }
 
 - (NSArray<NSString *> *)lxd_generateAllFilePathsAtDirectoryPath: (NSString *)directoryPath {
-    if ([self lxd_ileTypeAtFilePath: directoryPath] != LXDFileTypeDirectory) { return @[]; }
+    if ([self lxd_fileTypeAtFilePath: directoryPath] != LXDFileTypeDirectory) { return @[]; }
     NSMutableArray *allFilePaths = @[].mutableCopy;
     
     __weak typeof(self) self_weak_ = self;

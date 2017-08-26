@@ -36,17 +36,17 @@ static NSString *const kLXDDateTimeFormatExp = @"^\\d[4]-\\d[2]-\\d[2] \\d[2]:\\
 
 #pragma mark Public
 + (instancetype)lxd_dateWithDateString: (NSString *)dateString {
-    if (![dateString vertifyStringWithExp: kLXDDateFormatExp]) { return nil; }
+    if (![dateString lxd_vertifyStringWithExp: kLXDDateFormatExp]) { return nil; }
     return [[self _lxdGlobalDateFormatterWithDateFormat: @"yyyy-MM-dd"] dateFromString: dateString];
 }
 
 + (instancetype)lxd_dateWithTimeString: (NSString *)timeString {
-    if (![timeString vertifyStringWithExp: kLXDTimeFormatExp]) { return nil; }
+    if (![timeString lxd_vertifyStringWithExp: kLXDTimeFormatExp]) { return nil; }
     return [[self _lxdGlobalDateFormatterWithDateFormat: @"HH:mm:ss"] dateFromString: timeString];
 }
 
 + (instancetype)lxd_dateWithDateTimeString: (NSString *)dateTimeString {
-    if (![dateTimeString vertifyStringWithExp: kLXDDateTimeFormatExp]) { return nil; }
+    if (![dateTimeString lxd_vertifyStringWithExp: kLXDDateTimeFormatExp]) { return nil; }
     return [[self _lxdGlobalDateFormatterWithDateFormat: @"yyyy-MM-dd HH:mm:ss"] dateFromString: dateTimeString];
 }
 
@@ -159,24 +159,24 @@ static NSString *const kLXDDateTimeFormatExp = @"^\\d[4]-\\d[2]-\\d[2] \\d[2]:\\
 @implementation NSDate (LXDEstimate)
 
 
-- (BOOL)isLater {
-    return [self isLaterThanDate: [NSDate date]];
+- (BOOL)lxd_isLater {
+    return [self lxd_isLaterThanDate: [NSDate date]];
 }
 
-- (BOOL)isEarly {
-    return [self isEarlyThanDate: [NSDate date]];
+- (BOOL)lxd_isEarly {
+    return [self lxd_isEarlyThanDate: [NSDate date]];
 }
 
-- (BOOL)isLaterThanDate: (NSDate *)date {
+- (BOOL)lxd_isLaterThanDate: (NSDate *)date {
     return ([self timeIntervalSinceDate: date] > 0);
 }
 
-- (BOOL)isEarlyThanDate: (NSDate *)date {
+- (BOOL)lxd_isEarlyThanDate: (NSDate *)date {
     return ([self timeIntervalSinceDate: date] < 0);
 }
 
-- (BOOL)betweenStart: (NSDate *)start andEnd: (NSDate *)end {
-    return (![self isLaterThanDate: end] && ![self isEarlyThanDate: start]);
+- (BOOL)lxd_betweenStart: (NSDate *)start andEnd: (NSDate *)end {
+    return (![self lxd_isLaterThanDate: end] && ![self lxd_isEarlyThanDate: start]);
 }
 
 
