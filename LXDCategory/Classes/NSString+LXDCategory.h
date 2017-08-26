@@ -19,61 +19,61 @@ nonull_begin
 @interface NSString (LXDVertify)
 
 /*!
- *  @method vertifyEmail
+ *  @method lxd_vertifyEmail
  *  验证字符串是否邮箱格式
  */
 - (BOOL)lxd_vertifyEmail;
 
 /*!
- *  @method vertifyChinese
+ *  @method lxd_vertifyChinese
  *  验证字符串是否中文
  */
 - (BOOL)lxd_vertifyChinese;
 
 /*!
- *  @method vertifyPassword
+ *  @method lxd_vertifyPassword
  *  验证字符串是否6-18位大小字母混合数字密码
  */
 - (BOOL)lxd_vertifyPassword;
 
 /*!
- *  @method vertifyHyperLink
+ *  @method lxd_vertifyHyperLink
  *  验证字符串是否超链接
  */
 - (BOOL)lxd_vertifyHyperLink;
 
 /*!
- *  @method vertifyTelephone
+ *  @method lxd_vertifyTelephone
  *  验证字符串是否固机号码
  */
 - (BOOL)lxd_vertifyTelephone;
 
 /*!
- *  @method vertifyIpAddress
+ *  @method lxd_vertifyIpAddress
  *  验证字符串是否IP地址
  */
 - (BOOL)lxd_vertifyIpAddress;
 
 /*!
- *  @method vertifyMobilePhone
+ *  @method lxd_vertifyMobilePhone
  *  验证字符串是否手机号码
  */
 - (BOOL)lxd_vertifyMobilePhone;
 
 /*!
- *  @method vertifyCarNumber
+ *  @method lxd_vertifyCarNumber
  *  验证字符串是否车牌号码
  */
 - (BOOL)lxd_vertifyCarNumber;
 
 /*!
- *  @method vertifyIdentifierNumber
+ *  @method lxd_vertifyIdentifierNumber
  *  验证字符串是否身份证号码
  */
 - (BOOL)lxd_vertifyIdentifierNumber;
 
 /*!
- *  @method vertifyStringWithExp:
+ *  @method lxd_vertifyStringWithExp:
  *  验证字符串是否符合正则表达式规则
  */
 - (BOOL)lxd_vertifyStringWithExp: (NSString *)exp;
@@ -89,37 +89,37 @@ nonull_begin
 @interface NSString (LXDMatch)
 
 /*!
- *  @method matchNumbersInString:
+ *  @method lxd_matchNumbersInString:
  *  获取所有数字子串
  */
 - (NSArray<NSString *> *)lxd_matchNumbersInString: (NSString *)string;
 
 /*!
- *  @method matchNumberRangesInString:
+ *  @method lxd_matchNumberRangesInString:
  *  获取所有数字子串的range
  */
 - (NSArray<NSString *> *)lxd_matchNumberRangesInString: (NSString *)string;
 
 /*!
- *  @method matchHyperLinksInString:
+ *  @method lxd_matchHyperLinksInString:
  *  获取所有超链接子串
  */
 - (NSArray<NSString *> *)lxd_matchHyperLinksInString: (NSString *)string;
 
 /*!
- *  @method matchHyperLinkRangesInString:
+ *  @method lxd_matchHyperLinkRangesInString:
  *  获取所有超链接的range
  */
 - (NSArray<NSString *> *)lxd_matchHyperLinkRangesInString: (NSString *)string;
 
 /*!
- *  @method matchMatchesWithRegexExp:
+ *  @method lxd_matchMatchesWithRegexExp:
  *  获取所有匹配正则的子串
  */
 - (NSArray<NSString *> *)lxd_matchMatchesWithRegexExp: (NSString *)regexExp;
 
 /*!
- *  @method matchMatchRangesWithRegexExp:
+ *  @method lxd_matchMatchRangesWithRegexExp:
  *  获取匹配正则的子串range
  */
 - (NSArray<NSString *> *)lxd_matchMatchRangesWithRegexExp: (NSString *)regexExp;
@@ -135,19 +135,19 @@ nonull_begin
 @interface NSString (LXDConvert)
 
 /*!
- *  @method MD5String
+ *  @method lxd_MD5String
  *  返回字符摘要
  */
 - (NSString *)lxd_MD5String;
 
 /*!
- *  @method spellString
+ *  @method lxd_spellString
  *  返回拼音
  */
 - (NSString *)lxd_spellString;
 
 /*!
- *  @method absoluteUrl
+ *  @method lxd_absoluteUrl
  *  返回绝对网址
  */
 - (NSString * __nullable)lxd_absoluteUrl;
