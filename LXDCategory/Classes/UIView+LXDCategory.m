@@ -92,11 +92,11 @@
 @implementation UIView (LXDInitializer)
 
 
-+ (instancetype)loadFromNib {
-    return [self loadWithNibName: NSStringFromClass([self class])];
++ (instancetype)lxd_loadFromNib {
+    return [self lxd_loadWithNibName: NSStringFromClass([self class])];
 }
 
-+ (instancetype)loadWithNibName: (NSString *)nibName {
++ (instancetype)lxd_loadWithNibName: (NSString *)nibName {
     if (![nibName isKindOfClass: [NSString class]] || [nibName length] == 0) { return nil; }
     NSArray *nibs = [[NSBundle mainBundle] loadNibNamed: nibName owner: nil options: nil];
     for (id nib in nibs) {
