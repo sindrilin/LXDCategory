@@ -100,11 +100,11 @@
 @implementation UIView (LXDSnapshot)
 
 
-- (UIImage *)snapshotImage {
-    return [self snapshotImageInRect: self.bounds];
+- (UIImage *)lxd_snapshotImage {
+    return [self lxd_snapshotImageInRect: self.bounds];
 }
 
-- (UIImage *)snapshotImageInRect: (CGRect)rect {
+- (UIImage *)lxd_snapshotImageInRect: (CGRect)rect {
     if (CGRectGetMaxX(rect) > self.width) {
         rect.size.width = self.width - rect.origin.x;
     }

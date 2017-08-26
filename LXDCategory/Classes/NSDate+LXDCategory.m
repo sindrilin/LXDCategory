@@ -35,41 +35,41 @@ static NSString *const kLXDDateTimeFormatExp = @"^\\d[4]-\\d[2]-\\d[2] \\d[2]:\\
 
 
 #pragma mark Public
-+ (instancetype)dateWithDateString: (NSString *)dateString {
++ (instancetype)lxd_dateWithDateString: (NSString *)dateString {
     if (![dateString vertifyStringWithExp: kLXDDateFormatExp]) { return nil; }
     return [[self _lxdGlobalDateFormatterWithDateFormat: @"yyyy-MM-dd"] dateFromString: dateString];
 }
 
-+ (instancetype)dateWithTimeString: (NSString *)timeString {
++ (instancetype)lxd_dateWithTimeString: (NSString *)timeString {
     if (![timeString vertifyStringWithExp: kLXDTimeFormatExp]) { return nil; }
     return [[self _lxdGlobalDateFormatterWithDateFormat: @"HH:mm:ss"] dateFromString: timeString];
 }
 
-+ (instancetype)dateWithDateTimeString: (NSString *)dateTimeString {
++ (instancetype)lxd_dateWithDateTimeString: (NSString *)dateTimeString {
     if (![dateTimeString vertifyStringWithExp: kLXDDateTimeFormatExp]) { return nil; }
     return [[self _lxdGlobalDateFormatterWithDateFormat: @"yyyy-MM-dd HH:mm:ss"] dateFromString: dateTimeString];
 }
 
-+ (instancetype)dateWithFormatString: (NSString *)formatString dateFormat: (NSString *)dateFormat {
++ (instancetype)lxd_dateWithFormatString: (NSString *)formatString dateFormat: (NSString *)dateFormat {
     if (![formatString isKindOfClass: [NSString class]] || ![dateFormat isKindOfClass: [NSString class]]) {
         return nil;
     }
     return [[self _lxdGlobalDateFormatterWithDateFormat: dateFormat] dateFromString: formatString];
 }
 
-- (NSString *)dateString {
+- (NSString *)lxd_dateString {
     return [[NSDate _lxdGlobalDateFormatterWithDateFormat: @"yyyy-MM-dd"] stringFromDate: self];
 }
 
-- (NSString *)timeString {
+- (NSString *)lxd_timeString {
     return [[NSDate _lxdGlobalDateFormatterWithDateFormat: @"HH:mm:ss"] stringFromDate: self];
 }
 
-- (NSString *)dateTimeString {
+- (NSString *)lxd_dateTimeString {
     return [[NSDate _lxdGlobalDateFormatterWithDateFormat: @"yyyy-MM-dd HH:mm:ss"] stringFromDate: self];
 }
 
-- (NSString *)formatStringWithDateFormat: (NSString *)dateFormat {
+- (NSString *)lxd_formatStringWithDateFormat: (NSString *)dateFormat {
     if (![dateFormat isKindOfClass: [NSString class]]) { return nil; }
     return [[NSDate _lxdGlobalDateFormatterWithDateFormat: dateFormat] stringFromDate: self];
 }
@@ -108,43 +108,43 @@ static NSString *const kLXDDateTimeFormatExp = @"^\\d[4]-\\d[2]-\\d[2] \\d[2]:\\
 
 
 #pragma mark Public
-- (instancetype)dayBegin {
+- (instancetype)lxd_dayBegin {
     LXD_COMPONENTS_SET(components.hour = 0; components.minute = 0; components.second = 0);
 }
 
-- (instancetype)dayEnd {
+- (instancetype)lxd_dayEnd {
     LXD_COMPONENTS_SET(components.hour = 23; components.minute = 59; components.second = 59);
 }
 
-- (instancetype)monthBegin {
+- (instancetype)lxd_monthBegin {
     LXD_COMPONENTS_SET(components.day = 0; components.hour = 0; components.minute = 0; components.second = 0);
 }
 
-- (NSUInteger)year {
+- (NSUInteger)lxd_year {
     return [self _dateComponents].year;
 }
 
-- (NSUInteger)month {
+- (NSUInteger)lxd_month {
     return [self _dateComponents].month;
 }
 
-- (NSUInteger)day {
+- (NSUInteger)lxd_day {
     return [self _dateComponents].day;
 }
 
-- (NSUInteger)hour {
+- (NSUInteger)lxd_hour {
     return [self _dateComponents].hour;
 }
 
-- (NSUInteger)minute {
+- (NSUInteger)lxd_minute {
     return [self _dateComponents].minute;
 }
 
-- (NSUInteger)second {
+- (NSUInteger)lxd_second {
     return [self _dateComponents].second;
 }
 
-- (NSString *)weekday {
+- (NSString *)lxd_weekday {
     NSArray * weekdays = @[@"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六"];
     return weekdays[[self _dateComponents].weekday - 1];
 }

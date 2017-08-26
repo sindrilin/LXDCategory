@@ -34,16 +34,16 @@
 @interface UIView (LXDInitializer)
 
 /*!
- *  @method loadFromNib
+ *  @method lxd_loadFromNib
  *  从<类名.xib>中寻找view
  */
-+ (instancetype)loadFromNib;
++ (instancetype)lxd_loadFromNib;
 
 /*!
- *  @method loadWithNibName:
+ *  @method lxd_loadWithNibName:
  *  从nibName.xib中寻找view
  */
-+ (instancetype)loadWithNibName: (NSString *)nibName;
++ (instancetype)lxd_loadWithNibName: (NSString *)nibName;
 
 @end
 
@@ -56,16 +56,16 @@
 @interface UIView (LXDSnapshot)
 
 /*!
- *  @method snapshotImage
+ *  @method lxd_snapshotImage
  *  截取view
  */
-- (UIImage *)snapshotImage;
+- (UIImage *)lxd_snapshotImage;
 
 /*!
- *  @method snapshotImageInRect:
+ *  @method lxd_snapshotImageInRect:
  *  截取view中rect范围的视图
  */
-- (UIImage *)snapshotImageInRect: (CGRect)rect;
+- (UIImage *)lxd_snapshotImageInRect: (CGRect)rect;
 
 @end
 

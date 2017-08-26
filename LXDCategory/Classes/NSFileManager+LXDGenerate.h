@@ -28,34 +28,34 @@ typedef NS_ENUM(NSInteger, LXDFileType)
 @interface NSFileManager (LXDGenerate)
 
 /*!
- *  @method   lxdFileTypeAtFilePath:
+ *  @method   lxd_fileTypeAtFilePath:
  *  获取文件类型
  */
-- (LXDFileType)lxdFileTypeAtFilePath: (NSString *)filePath;
+- (LXDFileType)lxd_fileTypeAtFilePath: (NSString *)filePath;
 
 /*!
- *  @method   lxdGenerateAllDatasAtDirectoryPath:
+ *  @method   lxd_generateAllDatasAtDirectoryPath:
  *  获取目录下所有的非文件夹文件数据
  */
-- (NSArray<NSData *> *)lxdGenerateAllDatasAtDirectoryPath: (NSString *)directoryPath;
+- (NSArray<NSData *> *)lxd_generateAllDatasAtDirectoryPath: (NSString *)directoryPath;
 
 /*!
- *  @method   lxdGenerateAllDatasAtFilePaths:
+ *  @method   lxd_generateAllDatasAtFilePaths:
  *  获取多个目录下所有的非文件夹文件数据
  */
-- (NSArray<NSData *> *)lxdGenerateAllDatasAtFilePaths: (NSArray<NSString *> *)filePaths;
+- (NSArray<NSData *> *)lxd_generateAllDatasAtFilePaths: (NSArray<NSString *> *)filePaths;
 
 /*!
- *  @method   lxdGenerateAllFilePathsAtDirectoryPath:
+ *  @method   lxd_generateAllFilePathsAtDirectoryPath:
  *  获取目录下所有的非文件夹文件目录
  */
-- (NSArray<NSString *> *)lxdGenerateAllFilePathsAtDirectoryPath: (NSString *)directoryPath;
+- (NSArray<NSString *> *)lxd_generateAllFilePathsAtDirectoryPath: (NSString *)directoryPath;
 
 /*!
- *  @method   lxdGenerateAllFilePathsAtFilePaths:
+ *  @method   lxd_generateAllFilePathsAtFilePaths:
  *  获取多个目录下所有的非文件夹文件目录
  */
-- (NSArray<NSString *> *)lxdGenerateAllFilePathsAtFilePaths: (NSArray<NSString *> *)filePaths;
+- (NSArray<NSString *> *)lxd_generateAllFilePathsAtFilePaths: (NSArray<NSString *> *)filePaths;
 
 @end
 

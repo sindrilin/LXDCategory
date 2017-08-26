@@ -16,12 +16,14 @@
 #import <LXDCategory/NSString+LXDCategory.h>
 #import <LXDCategory/UIButton+LXDCategory.h>
 #import <LXDCategory/NSFileManager+LXDGenerate.h>
+#import <LXDCategory/UIViewController+LXDCategory.h>
 #else
 #import  "UIView+LXDCategory.h"
 #import "NSDate+LXDCategory.h"
 #import "NSString+LXDCategory.h"
 #import "UIButton+LXDCategory.h"
 #import "NSFileManager+LXDGenerate.h"
+#import "UIViewController+LXDCategory.h"
 #endif
 
 

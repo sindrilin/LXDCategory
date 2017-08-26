@@ -19,52 +19,52 @@ nonull_begin
 @interface NSDate (LXDConvert)
 
 /*!
- *  @method dateWithDateString:
+ *  @method lxd_dateWithDateString:
  *  将yyyy-MM-dd格式字符串转换成日期
  */
-+ (__nullable instancetype)dateWithDateString: (NSString *)dateString unuse_ret_val;
++ (__nullable instancetype)lxd_dateWithDateString: (NSString *)dateString unuse_ret_val;
 
 /*!
- *  @method dateWithTimeString:
+ *  @method lxd_dateWithTimeString:
  *  将HH:mm:ss格式字符串转换成日期
  */
-+ (__nullable instancetype)dateWithTimeString: (NSString *)timeString unuse_ret_val;
++ (__nullable instancetype)lxd_dateWithTimeString: (NSString *)timeString unuse_ret_val;
 
 /*!
- *  @method dateWithDateTimeString:
+ *  @method lxd_dateWithDateTimeString:
  *  将yyyy-MM-dd HH:mm:ss格式字符串转换成日期
  */
-+ (__nullable instancetype)dateWithDateTimeString: (NSString *)dateTimeString unuse_ret_val;
++ (__nullable instancetype)lxd_dateWithDateTimeString: (NSString *)dateTimeString unuse_ret_val;
 
 /*!
- *  @method dateWithFormatString:dateFormat:
+ *  @method lxd_dateWithFormatString:dateFormat:
  *  将自定义dateFormat格式字符串转换成日期
  */
-+ (__nullable instancetype)dateWithFormatString: (NSString *)formatString dateFormat: (NSString *)dateFormat unuse_ret_val;
++ (__nullable instancetype)lxd_dateWithFormatString: (NSString *)formatString dateFormat: (NSString *)dateFormat unuse_ret_val;
 
 /*!
- *  @method dateString
+ *  @method lxd_dateString
  *  返回yyyy-MM-dd格式字符串
  */
-- (NSString *)dateString unuse_ret_val;
+- (NSString *)lxd_dateString unuse_ret_val;
 
 /*!
- *  @method timeString
+ *  @method lxd_timeString
  *  返回HH:mm:ss格式字符串
  */
-- (NSString *)timeString unuse_ret_val;
+- (NSString *)lxd_timeString unuse_ret_val;
 
 /*!
- *  @method dateTimeString
+ *  @method lxd_dateTimeString
  *  返回yyyy-MM-dd HH:mm:ss格式字符串
  */
-- (NSString *)dateTimeString unuse_ret_val;
+- (NSString *)lxd_dateTimeString unuse_ret_val;
 
 /*!
- *  @method formatStringWithDateFormat:
+ *  @method lxd_formatStringWithDateFormat:
  *  返回自定义dateFormat格式的日期字符串
  */
-- (NSString * __nullable)formatStringWithDateFormat: (NSString *)dateFormat unuse_ret_val;
+- (NSString * __nullable)lxd_formatStringWithDateFormat: (NSString *)dateFormat unuse_ret_val;
 
 @end
 
@@ -78,64 +78,64 @@ nonull_begin
 @interface NSDate (LXDGenerate)
 
 /*!
- *  @method dayBegin
+ *  @method lxd_dayBegin
  *  获取当天0时0分0秒
  */
-- (instancetype)dayBegin;
+- (instancetype)lxd_dayBegin;
 
 /*!
- *  @method dayEnd
+ *  @method lxd_dayEnd
  *  获取当天23时59分59秒
  */
-- (instancetype)dayEnd;
+- (instancetype)lxd_dayEnd;
 
 /*!
- *  @method monthBegin
+ *  @method lxd_monthBegin
  *  获取当月第一天0时0分0秒
  */
-- (instancetype)monthBegin;
+- (instancetype)lxd_monthBegin;
 
 /*!
- *  @method year
+ *  @method lxd_year
  *  获取年份
  */
-- (NSUInteger)year;
+- (NSUInteger)lxd_year;
 
 /*!
- *  @method month
+ *  @method lxd_month
  *  获取月份
  */
-- (NSUInteger)month;
+- (NSUInteger)lxd_month;
 
 /*!
- *  @method day
+ *  @method lxd_day
  *  获取天
  */
-- (NSUInteger)day;
+- (NSUInteger)lxd_day;
 
 /*!
- *  @method hour
+ *  @method lxd_hour
  *  获取时
  */
-- (NSUInteger)hour;
+- (NSUInteger)lxd_hour;
 
 /*!
- *  @method minute
+ *  @method lxd_minute
  *  获取分
  */
-- (NSUInteger)minute;
+- (NSUInteger)lxd_minute;
 
 /*!
- *  @method second
+ *  @method lxd_second
  *  获取秒
  */
-- (NSUInteger)second;
+- (NSUInteger)lxd_second;
 
 /*!
- *  @method weekday
+ *  @method lxd_weekday
  *  获取周几
  */
-- (NSString *)weekday;
+- (NSString *)lxd_weekday;
 
 @end
 
@@ -149,34 +149,34 @@ nonull_begin
 @interface NSDate (LXDEstimate)
 
 /*!
- *  @method isLater
+ *  @method lxd_isLater
  *  是否晚于当前时间
  */
-- (BOOL)isLater;
+- (BOOL)lxd_isLater;
 
 /*!
- *  @method isEarly
+ *  @method lxd_isEarly
  *  是否早于当前时间
  */
-- (BOOL)isEarly;
+- (BOOL)lxd_isEarly;
 
 /*!
- *  @method isLaterThanDate:
+ *  @method lxd_isLaterThanDate:
  *  是否晚于传入时间
  */
-- (BOOL)isLaterThanDate: (NSDate *)date;
+- (BOOL)lxd_isLaterThanDate: (NSDate *)date;
 
 /*!
- *  @method isEarlyThanDate:
+ *  @method lxd_isEarlyThanDate:
  *  是否晚于传入时间
  */
-- (BOOL)isEarlyThanDate: (NSDate *)date;
+- (BOOL)lxd_isEarlyThanDate: (NSDate *)date;
 
 /*!
- *  @method betweenStart:andEnd:
+ *  @method lxd_betweenStart:andEnd:
  *  是否处在两个日期之中
  */
-- (BOOL)betweenStart: (NSDate *)start andEnd: (NSDate *)end;
+- (BOOL)lxd_betweenStart: (NSDate *)start andEnd: (NSDate *)end;
 
 @end
 

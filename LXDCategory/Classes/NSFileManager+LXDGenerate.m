@@ -15,9 +15,9 @@
 
 #pragma mark Private
 - (NSArray<NSData *> *)_lxdGenerateAllDatasAtPath: (NSString *)path {
-    switch ([self lxdFileTypeAtFilePath: path]) {
+    switch ([self lxd_fileTypeAtFilePath: path]) {
         case LXDFileTypeDirectory:
-            return [self lxdGenerateAllDatasAtDirectoryPath: path];
+            return [self lxd_generateAllDatasAtDirectoryPath: path];
             
         case LXDFileTypeRegular:
         case LXDFileTypeUnkonwn:
@@ -29,9 +29,9 @@
 }
 
 - (NSArray<NSString *> *)_lxdGenerateAllFilePathsAtPath: (NSString *)path {
-    switch ([self lxdFileTypeAtFilePath: path]) {
+    switch ([self lxd_fileTypeAtFilePath: path]) {
         case LXDFileTypeDirectory:
-            return [self lxdGenerateAllFilePathsAtDirectoryPath: path];
+            return [self lxd_generateAllFilePathsAtDirectoryPath: path];
             
         case LXDFileTypeRegular:
         case LXDFileTypeUnkonwn:
@@ -43,7 +43,7 @@
 }
 
 - (void)_lxdEnumerateDirectoryPath: (NSString *)directoryPath withHandler: (void(^)(NSString *filePath))handler {
-    if ([self lxdFileTypeAtFilePath: directoryPath] != LXDFileTypeDirectory || handler == nil) {
+    if ([self lxd_fileTypeAtFilePath: directoryPath] != LXDFileTypeDirectory || handler == nil) {
         return;
     }
     
@@ -56,7 +56,7 @@
 
 
 #pragma mark Public
-- (LXDFileType)lxdFileTypeAtFilePath: (NSString *)filePath {
+- (LXDFileType)lxd_fileTypeAtFilePath: (NSString *)filePath {
     if (![filePath isKindOfClass: [NSString class]] || [filePath length] == 0) { return LXDFileTypeInvaildFile; }
     LXDFileType fileType = LXDFileTypeUnkonwn;
     BOOL isDirectory = NO;
@@ -66,7 +66,7 @@
     return fileType;
 }
 
-- (NSArray<NSData *> *)lxdGenerateAllDatasAtFilePaths: (NSArray<NSString *> *)filePaths {
+- (NSArray<NSData *> *)lxd_generateAllDatasAtFilePaths: (NSArray<NSString *> *)filePaths {
     if (![filePaths isKindOfClass: [NSArray class]] || [filePaths count] == 0) { return @[]; }
     
     NSMutableArray<NSData *> *allDatas = @[].mutableCopy;
@@ -76,8 +76,8 @@
     return [NSArray arrayWithArray: allDatas];
 }
 
-- (NSArray<NSData *> *)lxdGenerateAllDatasAtDirectoryPath: (NSString *)directoryPath {
-    if ([self lxdFileTypeAtFilePath: directoryPath] != LXDFileTypeDirectory) { return @[]; }
+- (NSArray<NSData *> *)lxd_generateAllDatasAtDirectoryPath: (NSString *)directoryPath {
+    if ([self lxd_fileTypeAtFilePath: directoryPath] != LXDFileTypeDirectory) { return @[]; }
     NSMutableArray<NSData *> *allDatas = @[].mutableCopy;
     
     __weak typeof(self) self_weak_ = self;
@@ -88,7 +88,7 @@
     return [NSArray arrayWithArray: allDatas];
 }
 
-- (NSArray<NSString *> *)lxdGenerateAllFilePathsAtFilePaths: (NSArray<NSString *> *)filePaths {
+- (NSArray<NSString *> *)lxd_generateAllFilePathsAtFilePaths: (NSArray<NSString *> *)filePaths {
     if (![filePaths isKindOfClass: [NSArray class]] || [filePaths count] == 0) { return @[]; }
     NSMutableArray *allFilePaths = @[].mutableCopy;
     
@@ -99,8 +99,8 @@
     return [NSArray arrayWithArray: allFilePaths];
 }
 
-- (NSArray<NSString *> *)lxdGenerateAllFilePathsAtDirectoryPath: (NSString *)directoryPath {
-    if ([self lxdFileTypeAtFilePath: directoryPath] != LXDFileTypeDirectory) { return @[]; }
+- (NSArray<NSString *> *)lxd_generateAllFilePathsAtDirectoryPath: (NSString *)directoryPath {
+    if ([self lxd_ileTypeAtFilePath: directoryPath] != LXDFileTypeDirectory) { return @[]; }
     NSMutableArray *allFilePaths = @[].mutableCopy;
     
     __weak typeof(self) self_weak_ = self;
