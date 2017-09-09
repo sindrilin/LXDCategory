@@ -53,6 +53,22 @@
 @end
 
 
+#pragma mark - 其他
+/*!
+ *  @category   UIView+LXDOther
+ *  其他扩展
+ */
+@interface UIView (LXDOther)
+
+/*!
+ *  @method lxd_viewController
+ *  获取所在的控制器
+ */
+- (UIViewController *)lxd_viewController;
+
+@end
+
+
 #pragma mark - 截图相关
 /*!
  *  @category   UIView+LXDSnapshot

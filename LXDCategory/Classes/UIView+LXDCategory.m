@@ -112,6 +112,26 @@
 
 
 
+#pragma mark - 其他
+@implementation UIView (LXDOther)
+
+
+- (UIViewController *)lxd_viewController {
+    UIResponder *responder = self.nextResponder;
+    while (![responder isKindOfClass: [UIWindow class]] && responder != nil) {
+        if ([responder isKindOfClass: [UIViewController class]]) {
+            return (UIViewController *)responder;
+        }
+        responder = responder.nextResponder;
+    }
+    return nil;
+}
+
+
+@end
+
+
+
 #pragma mark -  截图相关
 @implementation UIView (LXDSnapshot)
 
