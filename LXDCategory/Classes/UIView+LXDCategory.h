@@ -53,7 +53,44 @@
 @end
 
 
+#pragma mark - 动画
+/*!
+ *  @category   UIView+LXDAnimated
+ *  动画扩展
+ */
+@interface UIView (LXDAnimated)
 
+/*!
+ *  @method setPopMaskView:
+ *  可设置pop动画底下的遮罩视图
+ */
++ (void)setPopMaskView: (UIView *)popMaskView;
+
+/*!
+ *  @method lxd_pop
+ *  弹窗形变出现
+ */
+- (void)lxd_pop;
+
+/*!
+ *  @method lxd_dismiss
+ *  弹窗形变消失
+ */
+- (void)lxd_dismiss;
+
+/*!
+ *  @method lxd_popWithDuration:animated:
+ *  弹窗形变出现，可自定义动画
+ */
+- (void)lxd_popWithDuration: (CGFloat)duration animated: (dispatch_block_t)animated;
+
+/*!
+ *  @method lxd_dismissWithDuration:animated:
+ *  弹窗形变消失，可自定义动画
+ */
+- (void)lxd_dismissWithDuration: (CGFloat)duration animated: (dispatch_block_t)animated;
+
+@end
 
 
 #pragma mark - 其他

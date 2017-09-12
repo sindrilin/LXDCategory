@@ -132,6 +132,67 @@
 
 
 
+#pragma mark -  动画
+@implementation UIView (LXDAnimated)
+
+
+static UIView *lxd_pop_mask_view;
++ (void)setPopMaskView: (UIView *)popMaskView {
+    if (popMaskView) {
+        lxd_pop_mask_view = popMaskView;
+        lxd_pop_mask_view.frame = [UIScreen mainScreen].bounds;
+    }
+}
+
++ (UIView *)loadPopMaskView {
+    if (!lxd_pop_mask_view) {
+        lxd_pop_mask_view = [[UIView alloc] initWithFrame: [UIScreen mainScreen].bounds];
+        lxd_pop_mask_view.backgroundColor = [UIColor colorWithWhite: .3 alpha: .6];
+    }
+    return lxd_pop_mask_view;
+}
+
+- (void)lxd_pop {
+    [self lxd_popWithDuration: 0.25 animated: ^{
+        self.transform = CGAffineTransformIdentity;
+    }];
+}
+
+- (void)lxd_dismiss {
+    [self lxd_dismissWithDuration: 0.25 animated: ^{
+        self.transform = CGAffineTransformMakeScale(0.05, 0.05);
+    }];
+}
+
+- (void)lxd_popWithDuration: (CGFloat)duration animated: (dispatch_block_t)animated {
+    [[UIView loadPopMaskView] addSubview: self];
+    self.center = [UIView loadPopMaskView].center;
+    [[UIApplication sharedApplication].keyWindow addSubview: [UIView loadPopMaskView]];
+    [UIView loadPopMaskView].alpha = 0;
+    self.transform = CGAffineTransformMakeScale(0.05, 0.05);
+    
+    [UIView animateWithDuration: duration animations: ^{
+        [UIView loadPopMaskView].alpha = 1;
+        animated();
+    }];
+}
+
+- (void)lxd_dismissWithDuration: (CGFloat)duration animated: (dispatch_block_t)animated {
+    [UIView loadPopMaskView].alpha = 1;
+    [UIView animateWithDuration: duration animations: ^{
+        [UIView loadPopMaskView].alpha = 0;
+        animated();
+    } completion: ^(BOOL finished) {
+        [self removeFromSuperview];
+        [[UIView loadPopMaskView] removeFromSuperview];
+    }];
+}
+
+
+@end
+
+
+
 #pragma mark -  截图相关
 @implementation UIView (LXDSnapshot)
 
