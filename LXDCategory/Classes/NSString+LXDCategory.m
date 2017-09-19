@@ -156,6 +156,31 @@
     return nil;
 }
 
+- (NSString *)lxd_chineseNumber {
+    if (![self lxd_vertifyStringWithExp: @"^\\d+$"]) { return @""; }
+    if (self.integerValue == 0) { return @"零"; }
+    NSArray *unit = @[@"", @"十", @"百", @"千", @"万", @"十", @"百", @"千", @"亿", @"十", @"百", @"千", @"万", @"十", @"百", @"千", @"兆", @"十", @"百", @"千", @"万"];
+    NSArray *number = @[@"", @"一", @"二", @"三", @"四", @"五", @"六", @"七", @"八", @"九"];
+    NSInteger num = self.integerValue;
+    NSInteger reverserNum = 0;
+    
+    int unitIndex = -1;
+    while (num > 0) {
+        reverserNum *= 10;
+        reverserNum += num % 10;
+        num /= 10;
+        unitIndex++;
+    }
+    if (unitIndex > unit.count) { return @""; }
+    
+    NSMutableString *result = @"".mutableCopy;
+    while (reverserNum > 0) {
+        [result appendFormat: @"%@%@", number[reverserNum % 10], unit[unitIndex--]];
+        reverserNum /= 10;
+    }
+    return result;
+}
+
 
 @end
 

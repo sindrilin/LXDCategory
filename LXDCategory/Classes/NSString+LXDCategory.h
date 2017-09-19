@@ -152,6 +152,12 @@ nonull_begin
  */
 - (NSString * __nullable)lxd_absoluteUrl;
 
+/*!
+ *  @method lxd_chineseNumber
+ *  数字转中文汉字
+ */
+- (NSString *)lxd_chineseNumber;
+
 @end
 
 
